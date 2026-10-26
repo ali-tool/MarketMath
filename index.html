@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#163b35">
+  <meta name="description" content="Plan a profitable craft fair with free calculators for booth break-even, product pricing, event costs, and sales targets. No signup required.">
+  <title>MarketMath — Craft Fair Profit Planner</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://YOUR-DOMAIN.example/">
+  <meta property="og:title" content="MarketMath — Craft Fair Profit Planner">
+  <meta property="og:description" content="Know your numbers before market day. Free tools for handmade sellers and craft fair vendors.">
+  <meta property="og:type" content="website">
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="MarketMath home"><span class="brand-mark">M</span><span>Market<span class="brand-light">Math</span></span></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#tools">Free tools</a><a href="#how-it-works">How it works</a><a href="about.html">About</a>
+  </nav>
+  <a class="header-cta" href="#planner">Plan an event <span aria-hidden="true">↗</span></a>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="pulse"></span> FOR HANDMADE SELLERS & MARKET VENDORS</div>
+      <h1>Make your next market<br><em>worth showing up for.</em></h1>
+      <p class="hero-lede">A clear plan for booth costs, product prices, and your break-even point — before you load the car.</p>
+      <div class="hero-actions"><a class="button button-primary" href="#planner">Calculate my event <span>→</span></a><a class="text-link" href="#tools">Explore all tools <span>↓</span></a></div>
+      <div class="trust-row"><span>✓ Free to use</span><span>✓ No account</span><span>✓ Your numbers stay in your browser</span></div>
+    </div>
+    <div class="hero-visual" aria-label="Illustration of a market vendor's planning sheet">
+      <div class="visual-top"><span class="tiny-label">MARKET DAY / PLAN 01</span><span class="status-pill"><span></span> READY TO PLAN</span></div>
+      <div class="visual-title">Your numbers,<br>all in one place.</div>
+      <div class="mini-bars"><div><span>Booth fee</span><strong>$85</strong><i style="--bar:34%"></i></div><div><span>Target profit</span><strong>$240</strong><i style="--bar:76%"></i></div><div><span>Break-even</span><strong>18 sales</strong><i style="--bar:48%"></i></div></div>
+      <div class="visual-foot"><span class="round-icon">↗</span><span>Make decisions with confidence.<br><small>Estimates based on your own inputs.</small></span></div>
+      <div class="decor decor-one"></div><div class="decor decor-two"></div>
+    </div>
+  </section>
+
+  <section class="ticker" aria-label="What you can plan"><span>PRODUCT COSTS</span><b>✳</b><span>EVENT FEES</span><b>✳</b><span>BREAK-EVEN SALES</span><b>✳</b><span>PROFIT TARGETS</span></section>
+
+  <section class="section planner-section" id="planner">
+    <div class="section-heading">
+      <div><div class="eyebrow">01 / START HERE</div><h2>Will this market pay off?</h2></div>
+      <p>Enter your best estimates. The plan updates as you type, so you can test a few scenarios before committing.</p>
+    </div>
+    <div class="planner-grid">
+      <form class="panel form-panel" id="event-form">
+        <div class="panel-heading"><span class="panel-icon">✎</span><div><h3>Your market plan</h3><p>Change the sample values to match your event.</p></div></div>
+        <div class="field-grid">
+          <label>Booth / table fee <span class="field-unit">$</span><input id="boothFee" type="number" min="0" step="0.01" value="85"></label>
+          <label>Travel & parking <span class="field-unit">$</span><input id="travel" type="number" min="0" step="0.01" value="25"></label>
+          <label>Other event costs <span class="field-unit">$</span><input id="otherCosts" type="number" min="0" step="0.01" value="15"></label>
+          <label>Average order value <span class="field-unit">$</span><input id="orderValue" type="number" min="0.01" step="0.01" value="24"></label>
+          <label>Product cost per order <span class="field-unit">$</span><input id="productCost" type="number" min="0" step="0.01" value="8"></label>
+          <label>Card/payment fee <span class="field-unit">%</span><input id="paymentFee" type="number" min="0" max="100" step="0.1" value="3"></label>
+          <label class="field-full">Profit goal for the event <span class="field-unit">$</span><input id="profitGoal" type="number" min="0" step="1" value="240"></label>
+        </div>
+        <div class="form-note"><span>ⓘ</span> Use your own costs and payment fee. These sample numbers are illustrative, not industry averages.</div>
+        <button class="button button-quiet" id="reset-event" type="button">Reset sample values ↺</button>
+      </form>
+      <div class="panel results-panel" aria-live="polite">
+        <div class="result-header"><div><span class="result-kicker">YOUR EVENT SNAPSHOT</span><h3>Know your target.</h3></div><span class="result-star">✳</span></div>
+        <div class="big-result"><span>Sales to break even</span><strong id="breakEven">5 <small>orders</small></strong><small id="breakEvenHint">Covers your estimated event costs.</small></div>
+        <div class="result-divider"></div>
+        <div class="metric-row"><span>Estimated event costs</span><strong id="eventCosts">$125.00</strong></div>
+        <div class="metric-row"><span>Contribution per order</span><strong id="contribution">$15.28</strong></div>
+        <div class="metric-row"><span>Orders for profit goal</span><strong id="goalOrders">24 orders</strong></div>
+        <div class="progress-block"><div class="progress-label"><span>Revenue needed for goal</span><strong id="goalRevenue">$576</strong></div><div class="progress-track"><span id="goalProgress"></span></div><small>Use this as a planning target, not a sales forecast.</small></div>
+        <div class="result-actions"><button class="button button-primary" id="save-plan" type="button">Save this plan <span>↗</span></button><button class="icon-button" id="copy-plan" type="button" aria-label="Copy plan summary" title="Copy plan summary">▣</button></div>
+        <p class="save-message" id="save-message" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tools-section" id="tools">
+    <div class="section-heading">
+      <div><div class="eyebrow">02 / FREE CALCULATORS</div><h2>Small tools. Clearer decisions.</h2></div>
+      <p>Use a single calculator or combine them to build a more complete market-day plan.</p>
+    </div>
+    <div class="tool-grid">
+      <a class="tool-card tool-card-featured" href="product-pricing.html"><span class="tool-number">TOOL 01</span><span class="tool-icon peach">＄</span><h3>Product pricing calculator</h3><p>Include materials, labor, packaging, and fees to find a price that supports your margin.</p><span class="card-link">Calculate product price <b>↗</b></span></a>
+      <a class="tool-card" href="break-even.html"><span class="tool-number">TOOL 02</span><span class="tool-icon mint">⌁</span><h3>Craft fair break-even calculator</h3><p>Find how many orders you need to cover booth fees and other event costs.</p><span class="card-link">Find break-even <b>↗</b></span></a>
+      <a class="tool-card" href="#planner"><span class="tool-number">TOOL 03</span><span class="tool-icon lilac">▤</span><h3>Event profit planner</h3><p>Compare event costs, average order value, payment fees, and your profit target.</p><span class="card-link">Plan an event <b>↗</b></span></a>
+    </div>
+  </section>
+
+  <section class="section how-section" id="how-it-works">
+    <div class="how-intro"><div class="eyebrow">03 / A SIMPLE METHOD</div><h2>Good planning<br>starts with <em>your numbers.</em></h2><p>No magic sales predictions. Just a practical way to see what needs to happen for an event to make sense.</p></div>
+    <div class="steps">
+      <article class="step"><span class="step-num">01</span><div><h3>Know what it costs</h3><p>Add booth fees, travel, supplies, and the cost of the products you expect to sell.</p></div></article>
+      <article class="step"><span class="step-num">02</span><div><h3>Set a realistic target</h3><p>Use your average order value and contribution per order to calculate a break-even point.</p></div></article>
+      <article class="step"><span class="step-num">03</span><div><h3>Adjust before market day</h3><p>Try different prices, fees, or targets. Save the plan on your device or copy it for later.</p></div></article>
+    </div>
+  </section>
+
+  <section class="section note-section">
+    <div class="note-icon">✳</div><div><h2>Useful numbers, without the guesswork.</h2><p>MarketMath shows the math behind each estimate. It does not predict foot traffic, guarantee sales, or replace your own records. Start with your real costs and revise your assumptions as you learn.</p></div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="section-heading"><div><div class="eyebrow">04 / FAQ</div><h2>Before you plan</h2></div></div>
+    <details><summary>What does break-even mean?</summary><p>Break-even is the approximate number of orders needed for your contribution after product and payment costs to cover the event costs you entered. It does not include costs you leave out, taxes, or the value of your time unless you include them.</p></details>
+    <details><summary>Are the sample numbers typical?</summary><p>No. They are only starter values to demonstrate the tool. Replace them with your own booth fee, travel costs, product costs, average order value, and payment-processing rate.</p></details>
+    <details><summary>Does MarketMath store my financial data?</summary><p>The calculators run in your browser. The event planner can save a plan to local storage on the device you are using. Do not use a shared device if you do not want other people to see your saved plan.</p></details>
+    <details><summary>Can I rely on the result as a guarantee?</summary><p>No. The result is arithmetic based on your assumptions, not a forecast of customer demand or event performance. Actual sales may be higher or lower.</p></details>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="footer-main"><a class="brand footer-brand" href="index.html"><span class="brand-mark">M</span><span>Market<span class="brand-light">Math</span></span></a><p>Practical planning tools for independent makers.</p><div class="footer-links"><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div></div>
+  <div class="footer-bottom"><span>© <span id="year"></span> MarketMath</span><span>Built for clearer decisions, not guaranteed outcomes.</span></div>
+</footer>
+<!-- AD SLOT: After your ad network approves the site, insert its official ad code here.
+     Do not ask users to click ads or place ads where they can be mistaken for calculator controls. -->
+</body>
+</html>
